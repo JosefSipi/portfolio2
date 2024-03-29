@@ -3881,12 +3881,34 @@ input, select, textarea {
 
 	}
 
-	.insert {
-			width: 50%;
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			margin: 2.5rem 0 0 0;
-			padding: 0.5rem 0 0 0.45rem;
+
+	li.tech-itm{
+		width: 50%;
+		display: flex;
+		padding-left: 0;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		flex-direction: row;
 	}
-	
+
+	li.tech-itm div{
+		padding-left: 3.75em;
+	}
+
+	.tech-itm img{
+		position: absolute;
+		height: 2.25em;
+		padding-right: 2em;
+	}
+
+	ul.icons-new{
+		display: flex;
+		flex-direction: column;
+		list-style-type: none;
+	}
+
+	@media (min-width: 600px) {
+		ul.icons-new {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}}
