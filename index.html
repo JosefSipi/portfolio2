@@ -199,10 +199,8 @@
 							<h2>Get in touch</h2>
 						</header>
 						<div class="content">
-							<!-- <p><strong>Auctor commodo</strong> interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis.</p> -->
 							<form
-								action="https://formspree.io/f/myyrbovq"
-								method="POST"
+								id="contactForm" onsubmit="submitForm(event)"
 							>
 								<div class="fields">
 									<div class="field half">
@@ -216,7 +214,6 @@
 									</div>
 								</div>
 								<ul class="actions">
-									<input type="hidden" name="_next" value="https://josefsipi.github.io/portfolio2/" />
 									<li><input type="submit" value="Send Message" class="button primary" /></li>
 								</ul>
 							</form>
@@ -260,4 +257,38 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
+	<script>
+
+		function clearForm() {
+			document.getElementById('contactForm').reset();
+		}
+		function displaySuccess() {
+			let textarea = document.getElementById('message')
+			textarea.placeholder = "I look forward to connecting with you. I will get back to you as soon as I can!";
+		}
+
+		function submitForm(event) {
+			event.preventDefault(); // Prevent the default form submission
+
+			const form = document.getElementById('contactForm');
+			const formData = new FormData(form);
+
+			fetch('https://formspree.io/f/myyrbovq', {
+				method: 'POST',
+				body: formData,
+				headers: {
+					'Accept': 'application/json'
+				}
+			})
+				.then(response => response.json())
+				.then(data => {
+					clearForm();
+					displaySuccess();
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		}
+	</script>
+
 </html>
