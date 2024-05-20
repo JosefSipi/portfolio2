@@ -3912,3 +3912,8 @@ input, select, textarea {
 			flex-direction: row;
 			flex-wrap: wrap;
 		}}
+
+		
+img.my-icon-img-resume{
+  width: 2.5em;
+}
